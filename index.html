@@ -10,7 +10,16 @@
 </head>
 <body>
   <div id="app">
-  
+    <h1>Generatore di Email</h1>
+    <div v-if="!loading && emails.length === 0">
+      <button @click="generateEmails">Genera Email</button>
+    </div>
+    <div v-if="loading">
+      <p>Generazione in corso...</p>
+    </div>
+    <ul v-if="emails.length === 10">
+      <li v-for="email in emails" :key="email">{{ email }}</li>
+    </ul>
   </div>
 
   <script src="js/app.js"></script>
